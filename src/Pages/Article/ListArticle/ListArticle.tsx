@@ -9,21 +9,9 @@ type Props = {}
 const ListArticle = (props: Props) => {
   
   const breadcrumbData :BreadcrumbModel[] =[
-    {
-      title: "Home",
-      link: "\cms",
-      isActive: true
-    },
-    {
-      title: "Article",
-      link: "\cms\article",
-      isActive: true
-    },
-    {
-      title: "List",
-      link: "",
-      isActive: false
-    }
+    { title: "Home", route: "\cms", isActive: true },
+    { title: "Article", route: "\cms\article", isActive: true },
+    { title: "List", route: "", isActive: false }
   ]
 
   const [articles, setArticles] = useState<Article[]>([])
