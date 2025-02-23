@@ -1,5 +1,5 @@
 export interface BreadcrumbModel {
     title: string
-    link: string
+    route: string
     isActive: boolean
 }
