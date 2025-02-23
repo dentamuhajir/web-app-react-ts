@@ -7,7 +7,9 @@ const Breadcrumb = (props : {breadcumbs: BreadcrumbModel[]}) => {
             <ol className="breadcrumb">
             { props.breadcumbs.map((breadcrumb) => {
                 return (
-                        <li className="breadcrumb-item active">{ breadcrumb.title }</li>
+                    <>
+                      <li className={"breadcrumb-item" + ( breadcrumb.isActive ? ' active' : '')}>{ breadcrumb.title }</li>
+                    </>
                 )
             })}
             </ol>
