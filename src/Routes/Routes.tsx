@@ -7,8 +7,13 @@ import ListProduct from "../Pages/Product/ListProduct/ListProduct";
 import Article from "../Pages/Article/Article";
 import AddArticle from "../Pages/Article/AddArticle/AddArticle";
 import ListArticle from "../Pages/Article/ListArticle/ListArticle";
+import Login from "../Pages/Auth/Login/Login";
 
 export const router = createBrowserRouter([
+    {
+        path: "/cms/login",
+    element: <Login/>
+    },
     {
         path: "/cms",
         element: <App/>,
