@@ -1,12 +1,26 @@
 import React from 'react'
 
+import { 
+  BtnBold,
+  BtnItalic,
+  Editor,
+  EditorProvider,
+  Toolbar
+} from 'react-simple-wysiwyg';
+
 type Props = {}
+
 
 const AddProduct = (props: Props) => {
 
-  const handleSubmit = () => {
-    alert("Clicked");
-  }
+    const handleSubmit = () => {
+        //alert("Clicked test");
+    }
+
+    const handleOnChange = () => {
+        // alert("test");
+    }
+    
 
   return (
     <>
@@ -28,7 +42,14 @@ const AddProduct = (props: Props) => {
         </div>
         <div className="mb-3">
           <label className="form-label">Description</label>
-          <input type="desc" className="form-control" />
+<EditorProvider>
+      <Editor  onChange={handleOnChange}>
+        <Toolbar>
+          <BtnBold />
+          <BtnItalic />
+        </Toolbar>
+      </Editor>
+    </EditorProvider>
         </div>
         <div className="mb-3">
           <label className="form-label">Image</label>
