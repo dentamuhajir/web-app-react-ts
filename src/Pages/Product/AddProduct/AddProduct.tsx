@@ -20,7 +20,7 @@ const AddProduct = (props: Props) => {
     const handleOnChange = () => {
         // alert("test");
     }
-    
+   
 
   return (
     <>
@@ -42,14 +42,16 @@ const AddProduct = (props: Props) => {
         </div>
         <div className="mb-3">
           <label className="form-label">Description</label>
-<EditorProvider>
-      <Editor  onChange={handleOnChange}>
-        <Toolbar>
-          <BtnBold />
-          <BtnItalic />
-        </Toolbar>
-      </Editor>
-    </EditorProvider>
+
+          <EditorProvider>
+            <Editor  onChange={handleOnChange}>
+              <Toolbar>
+                <BtnBold />
+                <BtnItalic />
+              </Toolbar>
+            </Editor>
+          </EditorProvider>
+
         </div>
         <div className="mb-3">
           <label className="form-label">Image</label>
