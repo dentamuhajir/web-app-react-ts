@@ -1,5 +1,3 @@
-
-
 // import { 
 //   BtnBold,
 //   BtnItalic,
@@ -7,6 +5,7 @@
 //   EditorProvider,
 //   Toolbar
 // } from 'react-simple-wysiwyg';
+import { useState } from 'react';
 import { BreadcrumbModel } from '../../../Models/Breadcrumb';
 
 import Breadcrumb from '../../../Shared/Breadcrumb';
@@ -15,27 +14,37 @@ type Props = {}
 
 
 const AddProduct = (props: Props) => {
-    const breadcrumbData :BreadcrumbModel[] = [
-      { title: "Home",route: "/cms", isActive: true },
-      { title: "Product", route: "/cms/product", isActive: true },
-      { title: "Addd", route: "", isActive: false }
-    ]
 
+  const breadcrumbData :BreadcrumbModel[] = [
+    { title: "Home",route: "/cms", isActive: true },
+    { title: "Product", route: "/cms/product", isActive: true },
+    { title: "Addd", route: "", isActive: false }
+  ]
 
-    const handleSubmit = () => {
-        alert("Clicked test");
-    }
+  const initialValues = {
+    name: "",
+    description: "",
+    image: "",
+    price: ""
+  }
 
-    const handleOnChange = () => {
-        alert("test");
-    }
-   
+  const [formValues, setFormValues] = useState(initialValues)
+
+  const handleSubmit = () => {
+      //
+  }
+
+  const handleChange = (e) => {
+    const {name, value} = e.target
+    setFormValues({ ...formValues, [name]: value})
+    console.log(formValues)
+  }
+    
 
   return (
     <>
       <div className='container mt-3'>
          <Breadcrumb breadcumbs={breadcrumbData}></Breadcrumb>
-
           <h3>Add product</h3>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -49,7 +58,13 @@ const AddProduct = (props: Props) => {
             </div>
             <div className="mb-3">
               <label className="form-label">Name</label>
-              <input type="text" className="form-control" />
+              <input 
+                  type="text" 
+                  className="form-control"
+                  name='name'
+                  value={ formValues.name }
+                  onChange={handleChange}
+                  />
             </div>
             <div className="mb-3">
               <label className="form-label">Description</label>
@@ -72,7 +87,12 @@ const AddProduct = (props: Props) => {
             </div>
             <div className="mb-3">
               <label className="form-label">Price</label>
-              <input type="text" className="form-control" />
+              <input 
+                type="text" 
+                className="form-control"
+                value={ formValues.price }
+                onChange={handleChange} 
+                />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>
