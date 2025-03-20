@@ -1,10 +1,4 @@
-// import { 
-//   BtnBold,
-//   BtnItalic,
-//   Editor,
-//   EditorProvider,
-//   Toolbar
-// } from 'react-simple-wysiwyg';
+
 import { useState } from 'react';
 import { BreadcrumbModel } from '../../../Models/Breadcrumb';
 
@@ -49,6 +43,8 @@ const AddProduct = (props: Props) => {
     }
     if(!values.price) {
       errors.price = "Price is required"
+    } else if(/\D/.test(values.price)) {
+      errors.price = "Price require number only"
     }
     return errors;
   } 
@@ -84,15 +80,6 @@ const AddProduct = (props: Props) => {
             </div>
             <div className="mb-3">
               <label className="form-label">Description</label>
-
-              {/* <EditorProvider>
-                <Editor  onChange={handleOnChange}>
-                  <Toolbar>
-                    <BtnBold />
-                    <BtnItalic />
-                  </Toolbar>
-                </Editor>
-              </EditorProvider> */}
 
             <textarea className="form-control" name='description' rows="3"></textarea>
 
