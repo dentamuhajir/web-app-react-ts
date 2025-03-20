@@ -21,7 +21,7 @@ const AddProduct = (props: Props) => {
     { title: "Addd", route: "", isActive: false }
   ]
 
-  const initialValues = {
+  const initialValues = { 
     name: "",
     description: "",
     image: "",
@@ -29,17 +29,29 @@ const AddProduct = (props: Props) => {
   }
 
   const [formValues, setFormValues] = useState(initialValues)
-
-  const handleSubmit = () => {
-      //
+  const [formErrors, setFormErrors] = useState({})
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setFormErrors(validate(formValues))
+    
+    
   }
 
   const handleChange = (e) => {
     const {name, value} = e.target
     setFormValues({ ...formValues, [name]: value})
-    console.log(formValues)
   }
-    
+
+  const validate = (values) => {
+    let errors = {}
+    if(!values.name) {
+      errors.name = "Name value is required"
+    }
+    if(!values.price) {
+      errors.price = "Price is required"
+    }
+    return errors;
+  } 
 
   return (
     <>
@@ -65,6 +77,10 @@ const AddProduct = (props: Props) => {
                   value={ formValues.name }
                   onChange={handleChange}
                   />
+              <p class="text-danger">
+                { formErrors.name }
+              </p>
+
             </div>
             <div className="mb-3">
               <label className="form-label">Description</label>
@@ -90,9 +106,13 @@ const AddProduct = (props: Props) => {
               <input 
                 type="text" 
                 className="form-control"
+                name="price"
                 value={ formValues.price }
                 onChange={handleChange} 
                 />
+              <p className="text-danger">
+                { formErrors.price }
+              </p>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>
