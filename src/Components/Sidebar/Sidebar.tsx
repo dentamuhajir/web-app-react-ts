@@ -40,7 +40,7 @@ const Sidebar = (props: Props) => {
           </ul>
         </div>
       </li>
-      {/* <li className="mb-1">
+      <li className="mb-1">
         <button className="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#article-collapse" aria-expanded="false">
           Article
         </button>
@@ -54,7 +54,7 @@ const Sidebar = (props: Props) => {
             </li>
           </ul>
         </div>
-      </li> */}
+      </li>
       <li className="border-top my-3"></li>
       <li className="mb-1">
         <button className="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
