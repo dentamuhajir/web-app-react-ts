@@ -9,9 +9,30 @@ const ListProduct = (props: Props) => {
   return (
     <>
       <div>ListProduct</div>
+      
+
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Categoy</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
       {products.map((item, index) => (
-        <p>{ item.name }</p>
+          <tr>
+            <th scope="row">{ item.id }</th>
+            <td>{ item.name }</td>
+            <td>{ item.category }</td>
+            <td>$ { item.price }</td>
+          </tr>
       ))}
+        
+
+      </tbody>
+    </table>
     </>
   )
   
