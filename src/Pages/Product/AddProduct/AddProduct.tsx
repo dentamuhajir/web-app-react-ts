@@ -1,13 +1,13 @@
-
 import { useState } from 'react';
 import { BreadcrumbModel } from '../../../Models/Breadcrumb';
-
 import Breadcrumb from '../../../Shared/Breadcrumb';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../../Reducers/ProductReducer';
 
 type Props = {}
 
-
 const AddProduct = (props: Props) => {
+  const dispatch = useDispatch()
 
   const breadcrumbData :BreadcrumbModel[] = [
     { title: "Home",route: "/cms", isActive: true },
@@ -27,8 +27,8 @@ const AddProduct = (props: Props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setFormErrors(validate(formValues))
-    
-    
+    console.log(formValues.name)
+    dispatch(addProduct({ name: "test", email: "test@email.com" }))    
   }
 
   const handleChange = (e) => {
@@ -53,7 +53,7 @@ const AddProduct = (props: Props) => {
     <>
       <div className='container mt-3'>
          <Breadcrumb breadcumbs={breadcrumbData}></Breadcrumb>
-          <h3>Add product</h3>
+          <h3>Add new product</h3>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">Category</label>
