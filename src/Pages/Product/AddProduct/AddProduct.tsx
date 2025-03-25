@@ -18,7 +18,7 @@ const AddProduct = (props: Props) => {
   const initialValues = { 
     name: "",
     description: "",
-    image: "",
+    category: "",
     price: ""
   }
 
@@ -30,7 +30,7 @@ const AddProduct = (props: Props) => {
     dispatch(addProduct({
         id: 13,
         name: formValues.name ,
-        category: "Gaming",
+        category: formValues.category,
         description: formValues.description,
         price: formValues.price
     }))    
@@ -62,11 +62,16 @@ const AddProduct = (props: Props) => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">Category</label>
-              <select className="form-select">
+              <select 
+                className="form-select" 
+                name='category'
+                value={formValues.category}
+                onChange={handleChange}
+                >
                 <option selected>Select a product category</option>
-                <option value="1">Electronic</option>
-                <option value="2">Fashion</option>
-                <option value="3">Sport</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Sport">Sport</option>
               </select>
             </div>
             <div className="mb-3">
