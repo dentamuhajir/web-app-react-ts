@@ -27,8 +27,13 @@ const AddProduct = (props: Props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setFormErrors(validate(formValues))
-    console.log(formValues.name)
-    dispatch(addProduct({ name: "test", email: "test@email.com" }))    
+    dispatch(addProduct({
+        id: 13,
+        name: formValues.name ,
+        category: "Gaming",
+        description: formValues.description,
+        price: formValues.price
+    }))    
   }
 
   const handleChange = (e) => {
