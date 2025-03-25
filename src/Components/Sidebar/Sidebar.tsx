@@ -1,9 +1,12 @@
 
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 
 type Props = {}
 
 const Sidebar = (props: Props) => {
+
+  const products = useSelector((state) => state.products);
   return (  
     <div className="flex-shrink-0 p-3 bg-white" >
     <a href="/" className="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
@@ -27,7 +30,7 @@ const Sidebar = (props: Props) => {
       </li>
       <li className="mb-1">
         <button className="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#product-collapse" aria-expanded="false">
-          Product
+          Product ({products.length})
         </button>
         <div className="collapse" id="product-collapse">
           <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
