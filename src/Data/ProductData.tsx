@@ -1,4 +1,4 @@
-export const productList = [
+export const productList: any[] = [
     {
         id: 1,
         name: "iPhone 11 Pro Max",
@@ -55,88 +55,26 @@ export const productList = [
         description: "Advanced smartwatch by Apple",
         price: 499
     },
+   
     {
         id: 9,
-        name: "Samsung Galaxy Watch 5",
-        category: "Wearable",
-        description: "Premium smartwatch by Samsung",
-        price: 349
-    },
-    {
-        id: 10,
-        name: "iPad Pro 12.9",
-        category: "Electronic",
-        description: "High-end tablet by Apple",
-        price: 1099
-    },
-    {
-        id: 11,
         name: "Microsoft Surface Pro 9",
         category: "Electronic",
         description: "Versatile tablet by Microsoft",
         price: 1299
     },
     {
-        id: 12,
+        id: 10,
         name: "Google Pixel 7 Pro",
         category: "Electronic",
         description: "Flagship smartphone by Google",
         price: 899
     },
     {
-        id: 13,
-        name: "Asus ROG Phone 6",
-        category: "Gaming",
-        description: "High-performance gaming phone",
-        price: 1199
-    },
-    {
-        id: 14,
+        id: 11,
         name: "Nintendo Switch OLED",
         category: "Gaming",
         description: "Popular gaming console by Nintendo",
         price: 349
     },
-    {
-        id: 15,
-        name: "PlayStation 5",
-        category: "Gaming",
-        description: "Next-gen gaming console by Sony",
-        price: 499
-    },
-    {
-        id: 16,
-        name: "Xbox Series X",
-        category: "Gaming",
-        description: "Powerful gaming console by Microsoft",
-        price: 499
-    },
-    {
-        id: 17,
-        name: "DJI Mini 3 Pro",
-        category: "Drone",
-        description: "Compact and powerful drone",
-        price: 899
-    },
-    {
-        id: 18,
-        name: "GoPro Hero 11 Black",
-        category: "Camera",
-        description: "Advanced action camera",
-        price: 499
-    },
-    {
-        id: 19,
-        name: "Canon EOS R6",
-        category: "Camera",
-        description: "High-end mirrorless camera",
-        price: 2499
-    },
-    {
-        id: 20,
-        name: "Sony A7 IV",
-        category: "Camera",
-        description: "Professional mirrorless camera",
-        price: 2699
-    }
 ];
