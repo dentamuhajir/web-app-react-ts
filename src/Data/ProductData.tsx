@@ -1,4 +1,6 @@
-export const productList: any[] = [
+import { Product } from "../Models/Product";
+
+export const productList: Product[] = [
     {
         id: 1,
         name: "iPhone 11 Pro Max",
