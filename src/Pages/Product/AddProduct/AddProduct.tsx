@@ -1,19 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BreadcrumbModel } from '../../../Models/Breadcrumb';
 import Breadcrumb from '../../../Shared/Breadcrumb';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../../Reducers/ProductReducer';
+import { setBreadcumbs } from '../../../Reducers/BreadcrumbReducer';
 
-type Props = {}
-
-const AddProduct = (props: Props) => {
+const AddProduct = () => {
   const dispatch = useDispatch()
-
   const breadcrumbData :BreadcrumbModel[] = [
     { title: "Home",route: "/cms", isActive: true },
     { title: "Product", route: "/cms/product", isActive: true },
-    { title: "Addd", route: "", isActive: false }
+    { title: "Add", route: "", isActive: false }
   ]
+  
+  useEffect(()=>{
+    dispatch(setBreadcumbs(
+      breadcrumbData
+    ))
+  },[dispatch])  
 
   const initialValues = { 
     name: "",
