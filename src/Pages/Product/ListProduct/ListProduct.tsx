@@ -1,17 +1,34 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
-type Props = {}
+import { useEffect } from 'react'
+import { setBreadcumbs } from '../../../Reducers/BreadcrumbReducer'
+import { BreadcrumbModel } from '../../../Models/Breadcrumb'
+import Breadcrumb from '../../../Shared/Breadcrumb'
 
-const ListProduct = (props: Props) => {
+const ListProduct = () => {
+  const dispatch = useDispatch()
+  const breadcrumbData :BreadcrumbModel[] = [
+    { title: "Home",route: "/cms", isActive: true },
+    { title: "Product", route: "/cms/product", isActive: true },
+    { title: "List", route: "", isActive: false }
+  ]
+  
+  useEffect(()=>{
+    dispatch(setBreadcumbs(
+      breadcrumbData
+    ))
+  },[dispatch])  
+
   const products = useSelector((state) => state.products);
-  console.log(products.length)
+  console.log(products)
+  //console.log(products.length)
   return (
     <>
       <Helmet>
         <title>List of products</title>
         <meta name="description" content="List of the product" />
       </Helmet>
+      <Breadcrumb breadcumbs={breadcrumbData}></Breadcrumb>
       <div>List of Product</div>
       <table className="table table-sm">
         <thead>
