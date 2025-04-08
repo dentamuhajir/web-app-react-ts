@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
+import FrontsiteApp from "../Frontsite/App";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Product from "../Pages/Product/Product";
 import AddProduct from "../Pages/Product/AddProduct/AddProduct";
@@ -11,8 +12,12 @@ import Login from "../Pages/Auth/Login/Login";
 
 export const router = createBrowserRouter([
     {
+        path: "/",
+        element: <FrontsiteApp/>
+    },
+    {
         path: "/cms/login",
-    element: <Login/>
+        element: <Login/>
     },
     {
         path: "/cms",
